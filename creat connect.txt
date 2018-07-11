@@ -1,0 +1,2 @@
+
+grant connect to dbadmin;

@@ -1,0 +1,62 @@
+create role patient_info_editor;
+
+grant insert, select, update on H_Patient to patient_info_editor;
+grant insert, select, update on H_Test to patient_info_editor;
+grant insert, select, updateon H_Admission to patient_info_editor;
+
+
+grant patient_info_editor to doctor;
+
+
+create role hospital_info_editor;
+
+grant insert, select, update on H_Ward to patient_info_editor;
+grant insert, select, update on H_Laboratory to patient_info_editor;
+
+grant hospital_info_editor to DBAdmin;
+
+GRANT CREATE JOB TO hospital_info_editor ;
+GRANT CREATE ROLE TO hospital_info_editor ;
+GRANT CREATE TRIGGER TO hospital_info_editor ;
+GRANT ALTER ANY RULE SET TO hospital_info_editor ;
+GRANT CREATE VIEW TO hospital_info_editor ;
+GRANT CREATE TABLE TO hospital_info_editor ;
+GRANT CREATE TYPE TO hospital_info_editor ;
+GRANT ALTER USER TO hospital_info_editor ;
+GRANT CREATE USER TO hospital_info_editor ;
+GRANT ALTER ANY ROLE TO hospital_info_editor ;
+GRANT GRANT ANY PRIVILEGE TO hospital_info_editor ;
+GRANT READ ANY TABLE TO hospital_info_editor ;
+GRANT ALTER SYSTEM TO hospital_info_editor ;
+GRANT GRANT ANY ROLE TO hospital_info_editor ;
+GRANT ALTER ANY RULE TO hospital_info_editor ;
+
+create role DB_security;
+GRANT ALTER PROFILE TO DB_security ;
+GRANT AUDIT SYSTEM TO DB_security ;
+GRANT GRANT ANY OBJECT PRIVILEGE TO DB_security ;
+GRANT ALTER ANY TABLE TO DB_security ;
+GRANT FORCE ANY TRANSACTION TO DB_security ;
+GRANT FLASHBACK ANY TABLE TO DB_security ;
+GRANT BACKUP ANY TABLE TO DB_security ;
+GRANT CREATE ANY RULE SET TO DB_security ;
+GRANT ALTER USER TO DB_security ;
+GRANT GLOBAL QUERY REWRITE TO DB_security ;
+GRANT CREATE ANY RULE TO DB_security ;
+GRANT ALTER TABLESPACE TO DB_security ;
+GRANT GRANT ANY PRIVILEGE TO DB_security ;
+GRANT ALTER ANY TRIGGER TO DB_security ;
+GRANT CREATE ANY VIEW TO DB_security ;
+GRANT FLASHBACK ARCHIVE ADMINISTER TO DB_security ;
+GRANT IMPORT FULL DATABASE TO DB_security ;
+GRANT COMMENT ANY TABLE TO DB_security ;
+GRANT READ ANY TABLE TO DB_security ;
+GRANT READ ANY FILE GROUP TO DB_security ;
+GRANT FORCE TRANSACTION TO DB_security ;
+GRANT ALTER ANY TYPE TO DB_security ;
+GRANT ALTER SYSTEM TO DB_security ;
+GRANT CREATE ANY TYPE TO DB_security ;
+GRANT ALTER DATABASE TO DB_security ;
+GRANT GRANT ANY ROLE TO DB_security ;
+
+grant DB_security to DBAdmin;

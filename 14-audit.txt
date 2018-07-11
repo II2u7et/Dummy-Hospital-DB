@@ -1,0 +1,15 @@
+audit select, update, delete on system.H_Patient by access;
+audit select, update, delete on system.H_Test by access;
+audit select, update, delete on system.H_Staff by access;
+audit select, update, delete on system.H_Admission by access;
+
+
+
+select os_username, username, timestamp, action_name, sql_text
+	from dba_audit_trail;
+
+col os_username format a25
+col username format a15
+col sql_Text format a50
+set lin 200
+set pagesize 200

@@ -1,0 +1,8 @@
+create tablespace rman_data
+  datafile 'C:\app\student\virtual\oradata\ph\rman_data01.dbf' size 100M
+  autoextend on next 100M maxsize 2G;
+  
+create user rmancat identified by rmancat
+default tablespace rman_data
+quota unlimited on rman_data;
+

@@ -1,0 +1,17 @@
+ CREATE TABLE SAL_LOG (	
+  USERNAME_ID NUMBER(8,0) NOT NULL, 
+  USERNAME_P VARCHAR2(50 BYTE) NOT NULL, 
+  ACTION_DATE DATE, 
+  OLD_SAL VARCHAR2(50 BYTE) NOT NULL, 
+  NEW_SAL VARCHAR2(50 BYTE) NOT NULL 
+  ); 
+
+
+create or replace trigger Salary_Audit_Gen
+after update of Salary on H_Staff
+for each row 
+begin 
+    insert into Sal_Log (Username_id, USERNAME_P, Action_date, Old_sal, New_sal)
+    values (:old.staff_ID, user, SYSDATE, :old.staff_Salary, :new.staff_salary);
+End;
+

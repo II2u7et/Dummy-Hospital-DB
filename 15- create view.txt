@@ -1,0 +1,29 @@
+CREATE VIEW test_view AS
+SELECT t_id, t_name, lab_name, pat_name
+FROM h_test , h_laboratory, h_patient
+where h_test.lab_id = h_laboratory.lab_id
+and h_test.pat_id = h_patient.pat_id
+with read only;
+
+CREATE VIEW admission_view AS
+SELECT admission_id, ward_name, pat_name
+FROM h_admission , h_ward, h_patient
+where h_admission.ward_id = h_ward.ward_id
+and h_admission.pat_id = h_patient.pat_id
+with read only;
+
+CREATE VIEW staff_view AS
+SELECT staff_id, staff_name, ward_name, age, start_date, salary, gender, phone_number
+FROM h_staff, h_ward
+where h_ward.WARD_ID = h_staff.ward_id
+with read only;
+
+grant SELECT on "SYSTEM"."ADMISSION_VIEW" to "RECEPTION";
+grant SELECT on "SYSTEM"."TEST_VIEW" to "RECEPTION";
+
+grant SELECT on "SYSTEM"."ADMISSION_VIEW" to "DOCTOR";
+grant SELECT on "SYSTEM"."TEST_VIEW" to "DOCTOR";
+
+grant SELECT on "SYSTEM"."ADMISSION_VIEW" to "DBADMIN";
+grant SELECT on "SYSTEM"."TEST_VIEW" to "DBADMIN";
+grant SELECT on "SYSTEM"."STAFF_VIEW" to "DBADMIN";

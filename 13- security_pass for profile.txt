@@ -1,0 +1,14 @@
+alter profile DBA_user 
+limit
+ password_verify_function 
+ ora12c_strong_verify_function;
+
+alter profile doctor_user 
+limit
+ password_verify_function 
+ ora12c_strong_verify_function;
+
+alter profile reception_user 
+limit
+ password_verify_function 
+ ora12c_strong_verify_function;

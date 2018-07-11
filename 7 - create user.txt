@@ -1,0 +1,83 @@
+create user  DBAdmin
+identified by DBAdmin
+default TABLESPACE users
+temporary tablespace temp
+password expire
+account UNLOCK;
+
+grant DBA to DBAdmin;
+
+alter user  DBAdmin
+identified by DBAdmin_1; ( take the screenshot)
+
+CREATE PROFILE DBA_user LIMIT
+   FAILED_LOGIN_ATTEMPTS 3
+   PASSWORD_LIFE_TIME 60
+   PASSWORD_REUSE_TIME 60
+   PASSWORD_REUSE_MAX 3
+   PASSWORD_VERIFY_FUNCTION verify_function
+   PASSWORD_LOCK_TIME 1/24
+   PASSWORD_GRACE_TIME 10
+   CONNECT_TIME 15 ;
+
+alter user DBAdmin
+PROFILE DBA_user;
+
+commit;
+
+
+
+
+create user  doctor
+identified by 1234
+default TABLESPACE users
+temporary tablespace temp
+password expire
+account UNLOCK;
+
+grant DBA to doctor;
+
+CREATE PROFILE doctor_user LIMIT
+   FAILED_LOGIN_ATTEMPTS 4
+   PASSWORD_LIFE_TIME 60
+   PASSWORD_REUSE_TIME 60
+   PASSWORD_REUSE_MAX 3
+   PASSWORD_VERIFY_FUNCTION verify_function
+   PASSWORD_LOCK_TIME 1/24
+   PASSWORD_GRACE_TIME 10
+   CONNECT_TIME 60 ;
+
+alter user Doctor
+PROFILE doctor_user;
+
+commit;
+
+
+create user  reception
+identified by 1234
+default TABLESPACE users
+temporary tablespace temp
+password expire
+account UNLOCK;
+
+grant DBA to reception;
+
+
+
+alter user  reception
+identified by ReCept10n__;
+
+CREATE PROFILE reception_user LIMIT
+   FAILED_LOGIN_ATTEMPTS 5
+   PASSWORD_LIFE_TIME 60
+   PASSWORD_REUSE_TIME 60
+   PASSWORD_REUSE_MAX 3
+   PASSWORD_VERIFY_FUNCTION verify_function
+   PASSWORD_LOCK_TIME 1/24
+   PASSWORD_GRACE_TIME 10
+   CONNECT_TIME 60 ;
+
+alter user reception
+PROFILE reception_user;
+
+commit;

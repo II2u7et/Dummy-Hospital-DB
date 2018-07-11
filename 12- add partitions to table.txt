@@ -1,0 +1,36 @@
+alter table H_staff 
+modify
+  partition by range(start_date)(
+  partition p_staff_s14 values less than(TO_DATE('01-JAN-2015','dd-MON-yyyy')),
+  partition p_staff_s15 values less than(TO_DATE('01-JAN-2016','dd-MON-yyyy')),
+  partition p_staff_s16 values less than(TO_DATE('01-JAN-201z','dd-MON-yyyy')))
+  online;
+
+alter table H_laboratory 
+modify
+  partition by list(lab_name)(
+  partition p_lab_blockA values ('Xray','Eyes','Teeth','Aduibility'),
+  partition p_lab_blockB values ('Blood','Urine Analyse','Ultrasonic'),
+  partition p_lab_blockC values ('Family planning','Joint','SurgerCTy')
+  )
+online;
+
+alter table H_patient 
+modify
+  partition by list (gender)
+  subpartition by range (age)
+  ( 	
+	partition p_patient_m values ('M')
+	(
+		subpartition p_patient_m_kid values less than (18),
+		subpartition p_patient_m_adult values less than (60),
+		subpartition p_patient_m_elder values less than (MAXVALUE)
+	),
+	
+	partition p_patient_f values ('F')
+	(
+		subpartition p_patient_f_kid values less than (18),
+		subpartition p_patient_f_adult values less than (60),
+		subpartition p_patient_f_elder values less than (MAXVALUE)
+	)
+ ) online;
