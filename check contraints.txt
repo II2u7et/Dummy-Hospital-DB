@@ -1,0 +1,36 @@
+Alter table H_Staff
+Add constraint ck_staff_salary
+Check ( salary > 500);
+
+Alter table H_Staff
+Add constraint ck_staff_gender
+Check ((gender = 'M') or (gender = 'F'));
+
+Alter table H_Staff
+Add constraint ck_staff_age
+Check ((age> 18) and (age < 70));
+
+Alter table H_Line
+Add constraint ck_line_quan
+Check ( quantity < 300 );
+
+Alter table H_Patient
+Add constraint ck_patient_MB
+Check (mobile_number not like '%[^0-9]%');
+
+Alter table H_Staff
+Add constraint ck_patient_startDay
+Check ( start_date >= (to_date('31 Dec 2010', 'DD MON YYYY', 'NLS_DATE_LANGUAGE = American')));
+
+Alter table H_Line
+Add constraint ck_line_quantity
+Check ( quantity < 300 );
+
+Alter table H_Patient
+Add constraint uc_patient unique (mobile_number);
+
+Alter table H_Staff
+Add constraint uc_staff unique (phone_number);
+
+Alter Table H_Patient
+Add constraint uc_patient_name_address UNIQUE (pat_name, address, mobile_number );

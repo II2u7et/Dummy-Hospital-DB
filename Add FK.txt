@@ -1,0 +1,49 @@
+alter table H_Test
+add constraint fk_H_Test foreign key (pat_id)
+  references H_Patient (pat_id);
+
+alter table H_Test
+add constraint fk_H_Test_2 foreign key (lab_id)
+  references  H_Laboratory (lab_id);
+
+alter table H_Invoice
+add constraint fk_H_Invoice foreign key (admission_id)
+  references H_Admission (admission_id);
+
+alter table H_Line
+add constraint fk_H_Line foreign key (item_id)
+  references H_Item (item_id);
+
+alter table H_Line  
+add constraint fk_H_Line_2 foreign key (inv_no)
+  references H_Invoice (inv_no);
+
+alter table H_Staff
+add constraint fk_H_Staff foreign key (ward_id)
+  references H_Ward (ward_id);
+  
+alter table H_Admission
+add constraint fk_H_Admission foreign key (ward_id)
+  references H_Ward (ward_id);
+
+alter table H_Admission
+add constraint fk_H_Admission_2 foreign key (pat_id)
+  references H_Patient (pat_id);
+  
+alter table H_Diagnosis
+add constraint fk_H_Diagnosis foreign key (admission_id)
+  references H_Admission (admission_id);
+  
+alter table H_Diagnosis
+add constraint fk_H_Diagnosis_2 foreign key (p_id)
+  references H_Physician (p_id);
+  
+alter table H_Treatment
+add constraint fk_H_Treatment foreign key (p_id)
+  references H_Physician (p_id);
+  
+alter table H_Treatment
+add constraint Treatment_2 foreign key (admission_id)
+  references H_Admission (admission_id);
+  
+commit;

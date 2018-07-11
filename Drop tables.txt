@@ -1,0 +1,13 @@
+drop table H_Admission;
+drop table H_Diagnosis;
+drop table H_Invoice;
+drop table H_Item;
+drop table H_Laboratory;
+drop table H_Line;
+drop table H_Patient;
+drop table H_Physician;
+drop table H_Staff;
+drop table H_Test;
+drop table H_Treatment;
+drop table H_Vendor;
+drop table H_Ward;

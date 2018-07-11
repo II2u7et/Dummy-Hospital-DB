@@ -1,0 +1,233 @@
+create sequence lab_s
+minvalue     10000
+maxvalue     10999
+start with   10000
+increment by 1
+cache        100;
+
+create or replace trigger lab_id_gen
+	before insert on h_laboratory
+for each row
+when (new.lab_id is null)
+begin 
+	select lab_s.nextval
+	into :new.lab_id
+	from dual;
+end;
+/
+
+create sequence test_s
+minvalue     20000
+maxvalue     20999
+start with   20000
+increment by 1
+cache        100;
+
+create or replace trigger t_id_gen
+	before insert on h_test
+for each row
+when (new.t_id is null)
+begin 
+	select test_s.nextval
+	into :new.t_id
+	from dual;
+end;
+/
+
+create sequence pat_s
+minvalue     30000
+maxvalue     30999
+start with   30000
+increment by 1
+cache        100;
+
+create or replace trigger pat_id_gen
+	before insert on h_patient
+for each row
+when (new.pat_id is null)
+begin 
+	select pat_s.nextval
+	into :new.pat_id
+	from dual;
+end;
+/
+
+create sequence inv_s
+minvalue     40000
+maxvalue     40999
+start with   40000
+increment by 1
+cache        100;
+
+create or replace trigger inv_id_gen
+	before insert on h_invoice
+for each row
+when (new.inv_no is null)
+begin 
+	select pat_s.nextval
+	into :new.inv_no
+	from dual;
+end;
+/
+
+create sequence line_s
+minvalue     50000
+maxvalue     50999
+start with   50000
+increment by 1
+cache        100;
+
+create or replace trigger line_id_gen
+	before insert on h_line
+for each row
+when (new.line_id is null)
+begin 
+	select line_s.nextval
+	into :new.line_id
+	from dual;
+end;
+/
+
+create sequence item_s
+minvalue     60000
+maxvalue     60999
+start with   60000
+increment by 1
+cache        100;
+
+create or replace trigger pat_id_gen
+	before insert on h_patient
+for each row
+when (new.pat_id is null)
+begin 
+	select pat_s.nextval
+	into :new.pat_id
+	from dual;
+end;
+/
+
+create sequence vend_s
+minvalue     70000
+maxvalue     70999
+start with   70000
+increment by 1
+cache        100;
+
+create or replace trigger vend_id_gen
+	before insert on h_vendor
+for each row
+when (new.vend_id is null)
+begin 
+	select vend_s.nextval
+	into :new.vend_id
+	from dual;
+end;
+/
+
+create sequence staff_s
+minvalue     80000
+maxvalue     80999
+start with   80000
+increment by 1
+cache        100;
+
+create or replace trigger staff_id_gen
+	before insert on h_staff
+for each row
+when (new.staff_id is null)
+begin 
+	select staff_s.nextval
+	into :new.staff_id
+	from dual;
+end;
+/
+
+create sequence ward_s
+minvalue     90000
+maxvalue     90999
+start with   90000
+increment by 1
+cache        100;
+
+create or replace trigger ward_id_gen
+	before insert on h_ward
+for each row
+when (new.ward_id is null)
+begin 
+	select ward_s.nextval
+	into :new.ward_id
+	from dual;
+end;
+/
+create sequence ad_s
+minvalue     100000
+maxvalue     100999
+start with   100000
+increment by 1
+cache        100;
+
+create or replace trigger admission_id_gen
+	before insert on h_admission
+for each row
+when (new.admission_id is null)
+begin 
+	select ad_s.nextval
+	into :new.admission_id
+	from dual;
+end;
+/
+
+create sequence dia_s
+minvalue     110000
+maxvalue     110999
+start with   110000
+increment by 1
+cache        100;
+
+create or replace trigger diagnosis_id_gen
+	before insert on h_diagnosis
+for each row
+when (new.diagnosis_id is null)
+begin 
+	select dia_s.nextval
+	into :new.diagnosis_id
+	from dual;
+end;
+/
+
+create sequence treat_s
+minvalue     120000
+maxvalue     120999
+start with   120000
+increment by 1
+cache        100;
+
+create or replace trigger treatment_id_gen
+	before insert on h_treatment
+for each row
+when (new.treatment_id is null)
+begin 
+	select treat_s.nextval
+	into :new.treatment_id
+	from dual;
+end;
+/
+
+create sequence p_s
+minvalue     130000
+maxvalue     130999
+start with   130000
+increment by 1
+cache        100;
+
+create or replace trigger p_id_gen
+	before insert on h_physician
+for each row
+when (new.p_id is null)
+begin 
+	select p_s.nextval
+	into :new.p_id
+	from dual;
+end;
+/
+commit;

@@ -1,0 +1,236 @@
+Create table H_Laboratory(
+lab_id number(6) not null,
+lab_name varchar2(50) not null,
+constraint pk_H_Laboratory primary key (lab_id)
+);
+
+Create table H_Test(
+t_id number(6) not null,
+t_name varchar2(50) not null,
+lab_id number(6) not null,
+pat_id number(6) not null,
+constraint pk_H_Test primary key (t_id)
+);
+
+Create table H_Patient(
+pat_id number(6) not null,
+pat_name varchar2(50) not null,
+constraint pk_H_Patient primary key (pat_id)
+);
+
+Create table H_Invoice(
+inv_no number(6) not null,
+admission_id number(6) not null,
+paid_date date,
+constraint pk_H_Invoice primary key (inv_no)
+);
+
+Create table H_Line(
+line_id number(6) not null,
+item_id number(6) not null,
+inv_no number(6) not null,
+quantity number(6) not null,
+paid_date date,
+constraint pk_H_Line primary key (inv_no)
+);
+
+
+Create table H_Item(
+item_id number(6) not null,
+item_name varchar2(50) not null,
+vend_id number(6) not null,
+constraint pk_H_Item primary key (item_id)
+);
+
+Create table H_Vendor(
+vend_id number(6) not null,
+vend_name varchar2(50) not null,
+constraint pk_H_Vendor primary key (vend_id)
+);
+
+Create table H_Staff(
+staff_id number(6) not null,
+staff_name varchar2(50) not null,
+ward_id number(6) not null,
+star_date date,
+salary number(10) not null,
+constraint pk_H_Staff primary key (staff_id)
+);
+
+Create table H_Ward(
+ward_id number(6) not null,
+ward_name varchar2(50) not null,
+constraint pk_H_Ward primary key (ward_id)
+);
+
+Create table H_Admission(
+admission_id number(6) not null,
+ward_id number(6) not null,
+pat_id number(6) not null,
+constraint pk_H_Admission primary key (admission_id)
+);
+
+Create table H_Physician(
+p_id number(6) not null,
+p_name varchar2(50) not null,
+constraint pk_H_Physician primary key (p_id)
+);
+
+Create table H_Diagnosis(
+diagnosis_id number(6) not null,
+admission_id number(6) not null,
+p_id number(6) not null,
+diagnosis_date date,
+constraint pk_H_Diagnosis primary key (diagnosis_id)
+);
+
+Create table H_Treatment(
+treatment_id number(6) not null,
+admission_id number(6) not null,
+p_id number(6) not null,
+treatment_date date,
+constraint pk_H_Treatment primary key (treatment_id)
+);
+
+alter table H_Test
+add constraint fk_H_Test foreign key (lab_id)
+  references H_Patient (pat_id);
+
+alter table H_Test
+add constraint fk_H_Test_2 foreign key (lab_id)
+  references  H_Laboratory (lab_id);
+
+alter table H_Invoice
+add constraint fk_H_Invoice foreign key (admission_id)
+  references H_Admission (admission_id);
+
+alter table H_Line
+add constraint fk_H_Line foreign key (item_id)
+  references H_Item (item_id);
+
+alter table H_Line  
+add constraint fk_H_Line_2 foreign key (inv_no)
+  references H_Invoice (inv_no);
+
+alter table H_Staff
+add constraint fk_H_Staff foreign key (ward_id)
+  references H_Ward (ward_id);
+  
+alter table H_Admission
+add constraint fk_H_Admission foreign key (ward_id)
+  references H_Ward (ward_id);
+
+alter table H_Admission
+add constraint fk_H_Admission_2 foreign key (pat_id)
+  references H_Patient (pat_id);
+  
+alter table H_Diagnosis
+add constraint fk_H_Diagnosis foreign key (admission_id)
+  references H_Admission (admission_id);
+  
+alter table H_Diagnosis
+add constraint fk_H_Diagnosis_2 foreign key (p_id)
+  references H_Physician (p_id);
+  
+alter table H_Treatment
+add constraint fk_H_Treatment foreign key (p_id)
+  references H_Physician (p_id);
+  
+alter table H_Treatment
+add constraint Treatment_2 foreign key (admission_id)
+  references H_Admission (admission_id);
+  
+commit;
+
+create sequence lab_seq
+minvalue     10000
+maxvalue     10999
+start with   10000
+increment by 1
+cache        100;
+
+create sequence test_seq
+minvalue     20000
+maxvalue     20999
+start with   20000
+increment by 1
+cache        100;
+
+create sequence pat_seq
+minvalue     30000
+maxvalue     30999
+start with   30000
+increment by 1
+cache        100;
+
+create sequence inv_seq
+minvalue     40000
+maxvalue     40999
+start with   40000
+increment by 1
+cache        100;
+
+create sequence line_seq
+minvalue     50000
+maxvalue     50999
+start with   50000
+increment by 1
+cache        100;
+
+create sequence item_seq
+minvalue     60000
+maxvalue     60999
+start with   60000
+increment by 1
+cache        100;
+
+create sequence vend_seq
+minvalue     70000
+maxvalue     70999
+start with   70000
+increment by 1
+cache        100;
+
+create sequence staff_seq
+minvalue     80000
+maxvalue     80999
+start with   80000
+increment by 1
+cache        100;
+
+create sequence ward_seq
+minvalue     90000
+maxvalue     90999
+start with   90000
+increment by 1
+cache        100;
+
+create sequence ad_seq
+minvalue     100000
+maxvalue     100999
+start with   100000
+increment by 1
+cache        100;
+
+create sequence dia_seq
+minvalue     110000
+maxvalue     110999
+start with   110000
+increment by 1
+cache        100;
+
+create sequence treat_seq
+minvalue     120000
+maxvalue     120999
+start with   120000
+increment by 1
+cache        100;
+
+create sequence p_seq
+minvalue     130000
+maxvalue     130999
+start with   130000
+increment by 1
+cache        100;
+
+commit;

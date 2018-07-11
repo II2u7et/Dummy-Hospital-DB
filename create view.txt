@@ -1,0 +1,27 @@
+CREATE VIEW test_view AS
+SELECT t_id, t_name, lab_name, pat_name
+FROM h_test , h_laboratory, h_patient
+where h_test.lab_id = h_laboratory.lab_id
+and h_test.pat_id = h_patient.pat_id
+with read only;
+
+
+ CREATE OR REPLACE FORCE VIEW "PHAM6"."VIEWER2" ("DIAGNOSIS_ID", "ADMISSION_ID", "PAT_NAME", "WARD_NAME", "P_NAME") AS 
+  SELECT  d.diagnosis_id , d.admission_id , p.pat_name , w.ward_name, ph.p_name 
+FROM h_admission a, h_patient p ,  h_ward w, h_physician ph, h_diagnosis d
+where a.pat_id = p.pat_id
+and a.ward_id = w.ward_id
+and d.admission_id = a.admission_id
+and d.p_id = ph.p_id
+with read only;
+
+
+
+CREATE VIEW viewer3 AS
+SELECT  inv.inv_no , inv.paid_date, a.admission_id, i.item_name, l.quantity, v.vend_name
+FROM h_admission a , h_invoice inv, h_line l , h_item i, h_vendor v
+where inv.admission_id = a.admission_id
+and inv.inv_no = l.inv_no
+and l.item_id = i.item_id
+and i.vend_id = v.vend_id
+with read only;

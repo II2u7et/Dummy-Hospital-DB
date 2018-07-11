@@ -1,0 +1,290 @@
+Insert into h_laboratory
+values(lab_s.nextval, 'Xray');
+
+Insert into h_laboratory
+values(lab_s.nextval, 'Eyes');
+
+Insert into h_laboratory
+values(lab_s.nextval, 'Blood');
+
+Insert into h_laboratory
+values(lab_s.nextval, 'Urine Analyse');
+
+Insert into h_laboratory
+values(lab_s.nextval, 'Teeth');
+
+Insert into h_laboratory
+values(lab_s.nextval, 'Surgery');
+
+
+
+Insert into h_vendor
+values( vend_s.nextval, 'Adobe');
+
+Insert into h_vendor
+values( vend_s.nextval, 'Microsoft');
+
+Insert into h_vendor
+values( vend_s.nextval, 'Samsung');
+
+Insert into h_vendor
+values( vend_s.nextval, 'LG');
+
+Insert into h_vendor
+values( vend_s.nextval, 'Philips');
+
+Insert into h_vendor
+values( vend_s.nextval, 'Apple');
+
+
+
+Insert into h_item
+values( item_s.nextval, 'Aspirin', '70001', '1.50');
+
+Insert into h_item
+values( item_s.nextval, 'Viroto eyes drop', '70002','12.00');
+
+Insert into h_item
+values( item_s.nextval, 'Vitamin C', '70001', '3.69');
+
+Insert into h_item
+values( item_s.nextval, 'Paradon Extra', '70003', '6.42');
+
+Insert into h_item
+values( item_s.nextval, 'Fish oil', '70004', '10.11');
+
+Insert into h_item
+values( item_s.nextval, 'Doxycyline', '70005', '1.27');
+
+Insert into h_item
+values( item_s.nextval, 'Viagra', '70006', '11.96');
+
+Insert into h_item
+values( item_s.nextval, 'Iphone X', '70004', '100.11');
+
+Insert into h_item
+values( item_s.nextval, 'Water bottle', '70005', '3.27');
+
+Insert into h_item
+values( item_s.nextval, 'Samsung galaxy S8', '70006', '11.96');
+
+
+
+
+Insert into h_ward
+values( ward_s.nextval, 'Bond');
+
+Insert into h_ward
+values( ward_s.nextval, 'Blood');
+
+Insert into h_ward
+values( ward_s.nextval, 'Eyes');
+
+Insert into h_ward
+values( ward_s.nextval, 'Psychology');
+
+Insert into h_ward
+values( ward_s.nextval, 'Pulmonology');
+
+Insert into h_ward
+values( ward_s.nextval, 'Internist');
+
+
+
+Insert into h_staff
+values( staff_s.nextval, 'Will Pham', '90002', ' 25', '6 Jun 2015', '15000', 'M','0226789645');
+
+Insert into h_staff
+values( staff_s.nextval, 'Brienne Tarth', '90001', ' 42', '9 Feb 2014', '27100', 'F','0209856123');
+
+Insert into h_staff
+values( staff_s.nextval, 'Melisandre', '90003', ' 26', '12 Aug 2016', '13200', 'F','0221682557');
+
+Insert into h_staff
+values( staff_s.nextval, 'Viserys Targaryen', '90004', '34 ', '17 Nov 2015', '22500', 'M','0226158645');
+
+Insert into h_staff
+values( staff_s.nextval, 'Davos Seaworth', '90005', '28 ', '31 Jan 2014', '22500', 'M','0226158200');
+
+Insert into h_staff
+values( staff_s.nextval, 'Samwell Tarly', '90006', '28 ', '17 Nov 2015', '22500', 'M','0226128285');
+
+
+
+
+Insert into h_patient
+values(pat_s.nextval, 'Jorah Mormont', '40' , 'M', '0213789422', 'Upper Hutt');
+
+Insert into h_patient
+values(pat_s.nextval, 'Cersei Lannister', '38' , 'F', '0216094252', 'Petone');
+
+Insert into h_patient
+values(pat_s.nextval, 'Joffrey Baratheon', '20' , 'M', '0225824782', 'King Landing');
+
+Insert into h_patient
+values(pat_s.nextval, 'Jon Snow', '30' , 'M', '0216163402', 'Winterfell');
+
+Insert into h_patient
+values(pat_s.nextval, 'Kal Drogo', '37' , 'M', '0225874782', 'Essos');
+
+Insert into h_patient
+values(pat_s.nextval, 'Arya Stark', '18' , 'M', '0225814862', 'Kelson');
+
+Insert into h_patient
+values(pat_s.nextval, 'Theon Greyjoy', '28' , 'M', '0225880962', 'Koro Koro');
+
+
+
+
+
+Insert into h_test
+values(test_s.nextval, 'Lung X-Ray', '10001','30001');
+
+Insert into h_test
+values(test_s.nextval, 'Head CT Scan', '10001','30001');
+
+Insert into h_test
+values(test_s.nextval, 'Lipit Test', '10003','30002');
+
+Insert into h_test
+values(test_s.nextval, 'Eyes cheking', '10002','30003');
+
+Insert into h_test
+values(test_s.nextval, 'Braces', '10004','30004');
+
+Insert into h_test
+values(test_s.nextval, 'Urine test', '10002','30007');
+
+
+
+
+Insert into h_physician
+values( p_s.nextval, 'Dat');
+
+Insert into h_physician
+values( p_s.nextval, 'Daenerys');
+
+Insert into h_physician
+values( p_s.nextval, 'Hannibal');
+
+Insert into h_physician
+values( p_s.nextval, 'Pennywise');
+
+Insert into h_physician
+values( p_s.nextval, 'Jack Reaper');
+
+Insert into h_physician
+values( p_s.nextval, 'Jaqen Hghar');
+
+
+
+
+Insert into h_admission
+values (ad_s.nextval, '90001', '30001');
+
+Insert into h_admission
+values (ad_s.nextval, '90002', '30003');
+
+Insert into h_admission
+values (ad_s.nextval, '90003', '30002');
+
+Insert into h_admission
+values (ad_s.nextval, '90004', '30007');
+
+Insert into h_admission
+values (ad_s.nextval, '90005', '30006');
+
+Insert into h_admission
+values (ad_s.nextval, '90001', '30005');
+
+Insert into h_admission
+values (ad_s.nextval, '90002', '30004');
+
+
+
+
+Insert into h_diagnosis
+values( dia_s.nextval,'100003', '130004');
+
+Insert into h_diagnosis
+values( dia_s.nextval,'100001', '130005');
+
+Insert into h_diagnosis
+values( dia_s.nextval,'100002', '130006');
+
+Insert into h_diagnosis
+values( dia_s.nextval,'100004', '130007');
+
+Insert into h_diagnosis
+values( dia_s.nextval,'100005', '130005');
+
+
+
+
+Insert into h_treatment
+values( treat_s.nextval,'100002', '130002');
+
+Insert into h_treatment
+values( treat_s.nextval,'100003', '130005');
+
+Insert into h_treatment
+values( treat_s.nextval,'100005', '130004');
+
+Insert into h_treatment
+values( treat_s.nextval,'100003', '130005');
+
+Insert into h_treatment
+values( treat_s.nextval,'100001', '130006');
+
+
+
+Insert into h_invoice
+values( inv_s.nextval, '100002', '25 Oct 2016');
+
+Insert into h_invoice
+values( inv_s.nextval, '100003', '28 Oct 2016');
+
+Insert into h_invoice
+values( inv_s.nextval, '100001', '17 Nov 2016');
+
+Insert into h_invoice
+values( inv_s.nextval, '100004', '19 Nov 2016');
+
+Insert into h_invoice
+values( inv_s.nextval, '100002', '21 Nov 2016');
+
+Insert into h_invoice
+values( inv_s.nextval, '100003', '22 Nov 2016');
+
+
+
+
+Insert into h_line
+values( line_s.nextval, '60001', '40001', '25');
+
+Insert into h_line
+values( line_s.nextval, '60003', '40002', '30');
+
+Insert into h_line
+values( line_s.nextval, '60004', '40003', '10');
+
+Insert into h_line
+values( line_s.nextval, '60005', '40006', '18');
+
+Insert into h_line
+values( line_s.nextval, '60006', '40005', '20');
+
+Insert into h_line
+values( line_s.nextval, '60007', '40004', '17');
+
+
+commit;
+
+
+
+
+
+
+
+
+

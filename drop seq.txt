@@ -1,0 +1,13 @@
+DROP SEQUENCE lab_s; 
+DROP SEQUENCE test_s; 
+DROP SEQUENCE pat_s; 
+DROP SEQUENCE inv_s; 
+DROP SEQUENCE line_s; 
+DROP SEQUENCE item_s; 
+DROP SEQUENCE vend_s; 
+DROP SEQUENCE staff_s; 
+DROP SEQUENCE ward_s; 
+DROP SEQUENCE ad_s; 
+DROP SEQUENCE dia_s; 
+DROP SEQUENCE treat_s; 
+DROP SEQUENCE p_s; 

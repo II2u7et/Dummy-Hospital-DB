@@ -1,0 +1,98 @@
+Create table H_Laboratory(
+lab_id number(6) not null,
+lab_name varchar2(50) not null,
+constraint pk_H_Laboratory primary key (lab_id)
+);
+
+Create table H_Test(
+t_id number(6) not null,
+t_name varchar2(50) not null,
+lab_id number(6) not null,
+pat_id number(6) not null,
+constraint pk_H_Test primary key (t_id)
+);
+
+Create table H_Patient(
+pat_id number(6) not null,
+pat_name varchar2(50) not null,
+age number(3) not null,
+gender varchar(2) not null,
+mobile_number varchar(10) not null,
+address varchar2(50) not null,
+constraint pk_H_Patient primary key (pat_id)
+);
+
+Create table H_Invoice(
+inv_no number(6) not null,
+admission_id number(6) not null,
+paid_date date,
+constraint pk_H_Invoice primary key (inv_no)
+);
+
+Create table H_Line(
+line_id number(6) not null,
+item_id number(6) not null,
+inv_no number(6) not null,
+quantity number(6) not null,
+constraint pk_H_Line primary key (inv_no)
+);
+
+
+Create table H_Item(
+item_id number(6) not null,
+item_name varchar2(50) not null,
+vend_id number(6) not null,
+price number(5,2) not null,
+constraint pk_H_Item primary key (item_id)
+);
+
+Create table H_Vendor(
+vend_id number(6) not null,
+vend_name varchar2(50) not null,
+constraint pk_H_Vendor primary key (vend_id)
+);
+
+Create table H_Staff(
+staff_id number(6) not null,
+staff_name varchar2(50) not null,
+ward_id number(6) not null,
+age number(3) not null,
+start_date date,
+salary varchar(10) not null,
+gender varchar(2) not null,
+phone_number number(10) not null,
+constraint pk_H_Staff primary key (staff_id)
+);
+
+Create table H_Ward(
+ward_id number(6) not null,
+ward_name varchar2(50) not null,
+constraint pk_H_Ward primary key (ward_id)
+);
+
+Create table H_Admission(
+admission_id number(6) not null,
+ward_id number(6) not null,
+pat_id number(6) not null,
+constraint pk_H_Admission primary key (admission_id)
+);
+
+Create table H_Physician(
+p_id number(6) not null,
+p_name varchar2(50) not null,
+constraint pk_H_Physician primary key (p_id)
+);
+
+Create table H_Diagnosis(
+diagnosis_id number(6) not null,
+admission_id number(6) not null,
+p_id number(6) not null,
+constraint pk_H_Diagnosis primary key (diagnosis_id)
+);
+
+Create table H_Treatment(
+treatment_id number(6) not null,
+admission_id number(6) not null,
+p_id number(6) not null,
+constraint pk_H_Treatment primary key (treatment_id)
+);
